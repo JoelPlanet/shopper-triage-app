@@ -1,0 +1,26 @@
+Langauge selection
+- language selection is currently the first page in the flow. That is not right. The list for languages should be a list that opens from the bottom of the welcome page. See the "Language selector behaviour" video file in the Spec Assets folder to understand behaviour better
+
+Welcome page
+- The welcome page is absent from the application. This is critical as it gives the users instructions on what the flow is going to look like.
+- Use the "2. Welcome page.png" file as the core design artifact to create this page
+- This is the page that the language selector will appear on
+
+Issuing country page
+- The list of countries on the dropdown must be in alphabetial order
+- The stepper on this page is currently setup to show three steps, however it should only show two steps. The second step is on the next page, Departure details.
+- The headline on this page must be "where did you receive your Tax Free form?"
+- The blue box informing the user to repeat the flow if they have forms from more than one country is absent on the current screen implementation
+- The page is missing a "Cancel" button. The behaviour of this button is when pressed, the user is taken back to the welcome page screen
+
+Departure details page
+- The page is missing several dropdowns:
+    - The user must tell us the EU departure location (this will be taken from a list that I will share later)
+    - The user must give a departure date
+- The page is missing a "Cancel" button - The behaviour of this button is when pressed, the user is taken back to the welcome page screen
+
+Final page
+- The designs for the keep/send form instructions have been completely ignored. There must be two different pages created. Use the files in Spec Assets named, "5. Keep form instructions.png" and "6. Send form instructions.png", to inform the design of these new pages
+
+Overall
+- Use the PNG files in the Spec Assets as sources of truth. The files must be reviewed after the pages have been created to ensure consistency with the design

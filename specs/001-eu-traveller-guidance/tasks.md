@@ -58,26 +58,26 @@
 
 ### Journey State Management
 
-- [ ] T018 [US1] Define `TravellerJourney` state shape in `src/journey/state.ts` matching `data-model.md` (journeyId, startedAt, completedAt, sourceType, selectedLanguage, issuingCountryCode, departureCountryCode, outcomeCode, reasonCode, completionStatus, completionDurationMs)
-- [ ] T019 [US1] Implement journey state reducer in `src/journey/reducer.ts` covering transitions: `START_JOURNEY`, `SELECT_LANGUAGE`, `SET_ISSUING_COUNTRY`, `SET_DEPARTURE_COUNTRY`, `COMPLETE_JOURNEY`, `ABANDON_JOURNEY`
-- [ ] T020 [US1] Implement selectors in `src/journey/selectors.ts`: `isReadyForRuleEvaluation`, `isCompleted`, `getOutcome`
+- [X] T018 [US1] Define `TravellerJourney` state shape in `src/journey/state.ts` matching `data-model.md` (journeyId, startedAt, completedAt, sourceType, selectedLanguage, issuingCountryCode, departureCountryCode, outcomeCode, reasonCode, completionStatus, completionDurationMs)
+- [X] T019 [US1] Implement journey state reducer in `src/journey/reducer.ts` covering transitions: `START_JOURNEY`, `SELECT_LANGUAGE`, `SET_ISSUING_COUNTRY`, `SET_DEPARTURE_COUNTRY`, `COMPLETE_JOURNEY`, `ABANDON_JOURNEY`
+- [X] T020 [US1] Implement selectors in `src/journey/selectors.ts`: `isReadyForRuleEvaluation`, `isCompleted`, `getOutcome`
 
 ### Language Selection Screen
 
-- [ ] T021 [US1] Create `src/app/screens/LanguageSelectionScreen.tsx` rendering a list of the six launch locales (`en`, `es`, `pt`, `zh`, `ar`, `tr`) sourced from app config, with no hard-coded labels
-- [ ] T022 [US1] Wire language selection to `src/journey/reducer.ts` dispatch (`SELECT_LANGUAGE`) and persist selection to `localStorage`
-- [ ] T023 [US1] Apply `document.dir = 'rtl'` and relevant CSS direction class when `ar` is the active locale; `ltr` for all others, implemented in `src/i18n/direction.ts`
+- [X] T021 [US1] Create `src/app/screens/LanguageSelectionScreen.tsx` rendering a list of the six launch locales (`en`, `es`, `pt`, `zh`, `ar`, `tr`) sourced from app config, with no hard-coded labels
+- [X] T022 [US1] Wire language selection to `src/journey/reducer.ts` dispatch (`SELECT_LANGUAGE`) and persist selection to `localStorage`
+- [X] T023 [US1] Apply `document.dir = 'rtl'` and relevant CSS direction class when `ar` is the active locale; `ltr` for all others, implemented in `src/i18n/direction.ts`
 
 ### Country Question Screens
 
-- [ ] T024 [US1] Create `src/app/screens/IssuingCountryScreen.tsx` rendering a mobile-friendly country selector (list or searchable select) whose options come from active `countries` in config; country display names resolved from `i18n` by ISO code
-- [ ] T025 [US1] Create `src/app/screens/DepartureCountryScreen.tsx` with the same pattern as T024
-- [ ] T026 [US1] Wire both screens to journey reducer actions and to React Router flow so the sequence is: language → issuing country → departure country → outcome
+- [X] T024 [US1] Create `src/app/screens/IssuingCountryScreen.tsx` rendering a mobile-friendly country selector (list or searchable select) whose options come from active `countries` in config; country display names resolved from `i18n` by ISO code
+- [X] T025 [US1] Create `src/app/screens/DepartureCountryScreen.tsx` with the same pattern as T024
+- [X] T026 [US1] Wire both screens to journey reducer actions and to React Router flow so the sequence is: language → issuing country → departure country → outcome
 
 ### Outcome Screen
 
-- [ ] T027 [US1] Create `src/app/screens/OutcomeScreen.tsx` that calls `evaluateOutcome` with current journey state and resolved config, then displays exactly one localised instruction from `i18n` keyed on `outcomeCode`
-- [ ] T028 [US1] Ensure `OutcomeScreen` never renders both `KEEP_FORM` and `SEND_FORM` labels simultaneously (FR-005)
+- [X] T027 [US1] Create `src/app/screens/OutcomeScreen.tsx` that calls `evaluateOutcome` with current journey state and resolved config, then displays exactly one localised instruction from `i18n` keyed on `outcomeCode`
+- [X] T028 [US1] Ensure `OutcomeScreen` never renders both `KEEP_FORM` and `SEND_FORM` labels simultaneously (FR-005)
 
 **Checkpoint**: Full journey from language selection through outcome screen is independently testable on a mobile viewport.
 
