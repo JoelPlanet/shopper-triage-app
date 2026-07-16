@@ -32,19 +32,19 @@
 
 **Purpose**: Deliver the core infrastructure that all user-story phases depend on — schema validation, the rules engine, outcome/reason code contracts, and country config loading. No user-story work should begin before this phase is complete.
 
-- [ ] T009 Define outcome code enum `KEEP_FORM | SEND_FORM` and reason code enum in `src/rules/outcome-codes.ts` and `src/rules/reason-codes.ts`
-- [ ] T010 [P] Define `RuleInput`, `RulesConfig`, and `RuleResult` TypeScript types in `src/rules/engine.ts` matching the contract in `contracts/rules-and-config-contract.md`
-- [ ] T011 Implement `evaluateOutcome(input, config): RuleResult` in `src/rules/engine.ts` with exact precedence order from plan.md:
+- [X] T009 Define outcome code enum `KEEP_FORM | SEND_FORM` and reason code enum in `src/rules/outcome-codes.ts` and `src/rules/reason-codes.ts`
+- [X] T010 [P] Define `RuleInput`, `RulesConfig`, and `RuleResult` TypeScript types in `src/rules/engine.ts` matching the contract in `contracts/rules-and-config-contract.md`
+- [X] T011 Implement `evaluateOutcome(input, config): RuleResult` in `src/rules/engine.ts` with exact precedence order from plan.md:
   - Rule 1: non-digital issuing country → `SEND_FORM / SEND_FORM_NON_DIGITAL_ISSUING_COUNTRY`
   - Rule 2: cross-border departure → `SEND_FORM / SEND_FORM_CROSS_BORDER_DEPARTURE`
   - Rule 3: same country with digital → `KEEP_FORM / KEEP_FORM_DIGITAL_SAME_COUNTRY`
   - Rule 4: unsupported/missing route fallback → `SEND_FORM / SEND_FORM_UNSUPPORTED_ROUTE`
-- [ ] T012 Document precedence order with inline comments in `src/rules/precedence.ts` and export a human-readable `RULE_PRECEDENCE` constant for test assertions
-- [ ] T013 [P] Define Zod schema for `RulesConfig` in `src/config/country-rules.schema.ts`
-- [ ] T014 [P] Define Zod schema for app configuration in `src/config/app-config.schema.ts`
-- [ ] T015 Implement config loader in `src/config/loader.ts` that fetches `public/config/country-rules.v1.json`, validates it against the Zod schema, and falls back to `SEND_FORM / SEND_FORM_UNSUPPORTED_ROUTE` on failure with a non-blocking diagnostic log
-- [ ] T016 Author initial `public/config/country-rules.v1.json` with a representative set of EU countries, at least one with `supportsDigitalValidation: true` and one with `false`, matching the contract shape from `contracts/rules-and-config-contract.md`
-- [ ] T017 [P] Author initial `public/config/app-config.v1.json` with app-level metadata (version, supported locales list)
+- [X] T012 Document precedence order with inline comments in `src/rules/precedence.ts` and export a human-readable `RULE_PRECEDENCE` constant for test assertions
+- [X] T013 [P] Define Zod schema for `RulesConfig` in `src/config/country-rules.schema.ts`
+- [X] T014 [P] Define Zod schema for app configuration in `src/config/app-config.schema.ts`
+- [X] T015 Implement config loader in `src/config/loader.ts` that fetches `public/config/country-rules.v1.json`, validates it against the Zod schema, and falls back to `SEND_FORM / SEND_FORM_UNSUPPORTED_ROUTE` on failure with a non-blocking diagnostic log
+- [X] T016 Author initial `public/config/country-rules.v1.json` with a representative set of EU countries, at least one with `supportsDigitalValidation: true` and one with `false`, matching the contract shape from `contracts/rules-and-config-contract.md`
+- [X] T017 [P] Author initial `public/config/app-config.v1.json` with app-level metadata (version, supported locales list)
 
 **Checkpoint**: Rules engine, config schema, and config loader can be imported and evaluated in isolation before any UI or i18n work begins.
 
