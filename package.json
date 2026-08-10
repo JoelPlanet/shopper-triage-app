@@ -7,6 +7,9 @@
     "node": "22.x"
   },
   "scripts": {
+    "sync-assets": "node scripts/sync-spec-assets.mjs",
+    "predev": "npm run sync-assets",
+    "prebuild": "npm run sync-assets",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
